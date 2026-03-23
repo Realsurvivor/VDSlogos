@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Van de Socials — Huisstijl</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── TOKENS ──────────────────────────────────────── */
+    :root {
+      --orange:  #faa700;
+      --green:   #064449;
+      --black:   #231f20;
+      --white:   #ffffff;
+      --grey:    #ebedec;
+      --font:    'Montserrat', sans-serif;
+      --radius:  20px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ─── THEME WRAPPER ───────────────────────────────── */
+    .theme {
+      padding: 72px 24px;
+    }
+
+    .theme-dark {
+      background: var(--black);
+      color: var(--white);
+      --bg-card:   #2e2a2b;
+      --bg-subtle: #332e2f;
+      --text:      var(--white);
+      --muted:     rgba(255,255,255,0.45);
+      --border:    rgba(255,255,255,0.1);
+    }
+
+    .theme-light {
+      background: var(--grey);
+      color: var(--black);
+      --bg-card:   var(--white);
+      --bg-subtle: #dfe1e0;
+      --text:      var(--black);
+      --muted:     rgba(35,31,32,0.45);
+      --border:    rgba(35,31,32,0.1);
+    }
+
+    /* Scheidingslijn */
+    .divider {
+      height: 6px;
+      background: var(--orange);
+    }
+
+    /* ─── LABEL ───────────────────────────────────────── */
+    .theme-label {
+      max-width: 860px;
+      margin: 0 auto 48px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .theme-label-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--orange);
+      flex-shrink: 0;
+    }
+
+    .theme-label-text {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ─── PAGE CONTAINER ──────────────────────────────── */
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
+    }
+
+    /* ─── HERO ────────────────────────────────────────── */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 6vw, 68px);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .hero h1 span { color: var(--orange); }
+
+    .hero p {
+      margin-top: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .hero-logo {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    /* ─── SECTIE HEADER ───────────────────────────────── */
+    .sec-header {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .sec-num {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--orange);
+    }
+
+    .sec-title {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: var(--text);
+    }
+
+    /* ─── KLEUREN ─────────────────────────────────────── */
+    .swatches {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .swatch {
+      flex: 1;
+      min-width: 110px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .swatch-color { height: 90px; }
+
+    .swatch-info {
+      background: var(--bg-card);
+      padding: 10px 14px;
+    }
+
+    .swatch-name {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .swatch-hex {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    /* ─── TYPOGRAFIE ──────────────────────────────────── */
+    .type-list {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .type-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-card);
+    }
+
+    .type-row:last-child { border-bottom: none; }
+
+    .type-meta {
+      width: 130px;
+      flex-shrink: 0;
+    }
+
+    .type-meta-name {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .type-meta-detail {
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .ts-display { font-size: 44px; font-weight: 900; line-height: 1; letter-spacing: -0.02em; color: var(--text); }
+    .ts-h1      { font-size: 28px; font-weight: 800; line-height: 1.1; color: var(--text); }
+    .ts-h2      { font-size: 20px; font-weight: 700; color: var(--text); }
+    .ts-body    { font-size: 15px; font-weight: 400; color: var(--muted); }
+    .ts-label   { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+
+    /* ─── LOGO'S ──────────────────────────────────────── */
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .logo-panel {
+      border-radius: var(--radius);
+      padding: 36px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      border: 1px solid var(--border);
+    }
+
+    .logo-panel img { width: 88px; height: 88px; object-fit: contain; }
+
+    .logo-caption {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .lp-green  { background: var(--green); }
+    .lp-green  .logo-caption { color: rgba(255,255,255,0.45); }
+    .lp-orange { background: var(--orange); }
+    .lp-orange .logo-caption { color: rgba(35,31,32,0.45); }
+    .lp-black  { background: var(--black); }
+    .lp-black  .logo-caption { color: rgba(255,255,255,0.45); }
+
+    /* ─── COMPONENTEN ─────────────────────────────────── */
+    .comp-block {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .comp-row {
+      padding: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .comp-row:last-child { border-bottom: none; }
+
+    .comp-lbl {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .comp-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    /* Buttons */
+    .btn {
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      padding: 11px 22px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.15s, transform 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn:hover { opacity: 0.82; transform: translateY(-1px); }
+
+    .btn-p { background: var(--orange); color: var(--black); }
+    .btn-s { background: var(--green);  color: var(--white); }
+    .btn-g { background: transparent; color: var(--text); border: 1.5px solid var(--border); }
+
+    /* Badges */
+    .badge {
+      font-family: var(--font);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 100px;
+    }
+
+    .bd-o { background: var(--orange); color: var(--black); }
+    .bd-g { background: var(--green);  color: var(--white); }
+    .bd-s { background: var(--bg-subtle); color: var(--text); }
+
+    /* Input */
+    .field {
+      background: var(--bg-subtle);
+      border: 1.5px solid var(--border);
+      border-radius: 100px;
+      padding: 11px 18px;
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.15s;
+      width: 200px;
+    }
+
+    .field::placeholder { color: var(--muted); }
+    .field:focus { border-color: var(--orange); }
+
+    /* ─── TEKSTBLOKKEN ────────────────────────────────── */
+    .blocks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .block {
+      border-radius: var(--radius);
+      padding: 24px;
+      border: 1px solid var(--border);
+    }
+
+    .block-card   { background: var(--bg-card); }
+    .block-orange { background: var(--orange);  color: var(--black); }
+    .block-green  { background: var(--green);   color: var(--white); grid-column: 1 / -1; }
+
+    .b-eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      opacity: 0.55;
+    }
+
+    .b-title {
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+
+    .b-body {
+      font-size: 14px;
+      line-height: 1.65;
+      opacity: 0.7;
+    }
+
+    .b-stat {
+      font-size: 48px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .b-stat-label {
+      margin-top: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      opacity: 0.6;
+    }
+
+    .b-quote {
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .b-quote-author {
+      margin-top: 12px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--orange);
+    }
+
+    /* ─── SLIDES ──────────────────────────────────────── */
+    .slides { display: flex; flex-direction: column; gap: 10px; }
+
+    .slide {
+      aspect-ratio: 16/9;
+      border-radius: var(--radius);
+      overflow: hidden;
+      container-type: size;
+      position: relative;
+    }
+
+    /* Titelslide */
+    .s-title-bg {
+      background: var(--green);
+      height: 100%;
+      padding: 8%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .s-eyebrow {
+      font-size: 1.6cqh;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1%;
+    }
+
+    .s-headline {
+      font-size: 9cqh;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--white);
+    }
+
+    .s-sub {
+      margin-top: 2%;
+      font-size: 1.5cqh;
+      font-weight: 500;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .s-logo {
+      position: absolute;
+      top: 7%;
+      right: 6%;
+      width: 10%;
+    }
+
+    /* Inhoudslide */
+    .s-content-bg {
+      height: 100%;
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    .theme-dark .s-content-bg { background: #2e2a2b; }
+    .theme-light .s-content-bg { background: var(--white); }
+
+    .s-content-hdr {
+      background: var(--orange);
+      padding: 3% 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .s-content-hdr .s-headline {
+      font-size: 4.5cqh;
+      color: var(--black);
+    }
+
+    .s-content-hdr img { width: 8%; }
+
+    .s-points {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 4% 5%;
+      gap: 0;
+    }
+
+    .s-point {
+      display: flex;
+      gap: 3%;
+      padding: 2% 0;
+      border-bottom: 1px solid rgba(35,31,32,0.08);
+      align-items: flex-start;
+    }
+
+    .theme-dark .s-point { border-color: rgba(255,255,255,0.08); }
+
+    .s-point:nth-last-child(-n+2) { border-bottom: none; }
+
+    .s-point-n {
+      font-size: 4cqh;
+      font-weight: 900;
+      color: var(--orange);
+      flex-shrink: 0;
+      line-height: 1.1;
+    }
+
+    .s-point-t {
+      font-size: 1.8cqh;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding-top: 0.4cqh;
+    }
+
+    .theme-dark .s-point-t { color: var(--white); }
+    .theme-light .s-point-t { color: var(--black); }
+
+    /* Afsluitslide */
+    .s-close-bg {
+      background: var(--black);
+      height: 100%;
+      padding: 8%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .s-close-bg .s-headline { color: var(--white); }
+    .s-close-bg .s-headline span { color: var(--orange); }
+
+    .s-close-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 3%;
+    }
+
+    .s-close-contact { font-size: 1.4cqh; font-weight: 500; color: rgba(255,255,255,0.35); }
+    .s-close-url     { font-size: 1.4cqh; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--orange); }
+
+    /* ─── FOOTER ──────────────────────────────────────── */
+    .footer {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer img { width: 36px; height: 36px; }
+
+    .footer-name {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .footer-meta {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* ─── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 640px) {
+      .hero { flex-direction: column; }
+      .logo-grid { grid-template-columns: 1fr 1fr; }
+      .blocks { grid-template-columns: 1fr; }
+      .block-green { grid-column: auto; }
+      .type-meta { width: 90px; }
+      .ts-display { font-size: 28px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════
+     DONKER THEMA
+════════════════════════════════════════════════════ -->
+<div class="theme theme-dark">
+  <div class="page">
+
+    <div class="theme-label">
+      <div class="theme-label-dot"></div>
+      <span class="theme-label-text">Donker thema</span>
+    </div>
+
+    <!-- Hero -->
+    <header class="hero">
+      <div>
+        <h1>VAN DE<br><span>SOCIALS</span></h1>
+        <p>Brand Style Guide — 2025</p>
+      </div>
+      <img src="vandeSocials_Logo_Circle_FullColor_GBG zoom 1024.png" alt="Van de Socials logo" class="hero-logo">
+    </header>
+
+    <!-- 01 Kleuren -->
+    <section>
+      <div class="sec-header">
+        <span class="sec-num">01</span>
+        <h2 class="sec-title">Kleuren</h2>
+      </div>
+      <div class="swatches">
+        <div class="swatch">
+          <div class="swatch-color" style="background:#faa700"></div>
+          <div class="swatch-info"><div class="swatch-name">Orange</div><div class="swatch-hex">#faa700</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#064449"></div>
+          <div class="swatch-info"><div class="swatch-name">Green</div><div class="swatch-hex">#064449</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#231f20"></div>
+          <div class="swatch-info"><div class="swatch-name">Black</div><div class="swatch-hex">#231f20</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#ffffff;border-bottom:1px solid rgba(255,255,255,0.1)"></div>
+          <div class="swatch-info"><div class="swatch-name">White</div><div class="swatch-hex">#ffffff</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#ebedec"></div>
+          <div class="swatch-info"><div class="swatch-name">Grey</div><div class="swatch-hex">#ebedec</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 Typografie -->
+    <section>
+      <div class="sec-header">
+        <span class="sec-num">02</span>
+        <h2 class="sec-title">Typografie — Montserrat</h2>
+      </div>
+      <div class="type-list">
+        <div class="type-row">
+          <div class="type-meta"><div class="type-meta-name">Display</div><div class="type-meta-detail">900 · 44px</div></div>
+          <div class="ts-display">Van de Socials</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><div class="type-meta-name">Kop 1</div><div class="type-meta-detail">800 · 28px</div></div>
+          <div class="ts-h1">Groei door content</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><div class="type-meta-name">Kop 2</div><div class="type-meta-detail">700 · 20px</div></div>
+          <div class="ts-h2">Social media strategie</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><div class="type-meta-name">Body</div><div class="type-meta-detail">400 · 15px</div></div>
+          <div class="ts-body">De juiste boodschap, op het juiste moment, voor het juiste publiek.</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><div class="type-meta-name">Label</div><div class="type-meta-detail">700 · 12px</div></div>
+          <div class="ts-label">Instagram · LinkedIn · TikTok</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 Logo's -->
+    <section>
+      <div class="sec-header">
+        <span class="sec-num">03</span>
+        <h2 class="sec-title">Logo varianten</h2>
+      </div>
+      <div class="logo-grid">
+        <div class="logo-panel lp-green">
+          <img src="vandeSocials_Logo_Circle_White_RGB_DEF.png" alt="Wit logo op groen">
+          <span class="logo-caption">Wit op groen</span>
+        </div>
+        <div class="logo-panel lp-orange">
+          <img src="vandeSocials_Logo_Circle_Black_RGB_DEF.png" alt="Zwart logo op oranje">
+          <span class="logo-caption">Zwart op oranje</span>
+        </div>
+        <div class="logo-panel lp-black">
+          <img src="vandeSocials_Logo_Circle_FullColor_GBG zoom 1024.png" alt="Full-color logo">
+          <span class="logo-caption">Full color op zwart</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 Componenten -->
+    <section>
+      <div class="sec-header">
+        <span class="sec-num">04</span>
+        <h2 class="sec-title">Componenten</h2>
+      </div>
+      <div class="comp-block">
+        <div class="comp-row">
+          <div class="comp-lbl">Knoppen</div>
+          <div class="comp-items">
+            <button class="btn btn-p">Plan een gesprek</button>
+            <button class="btn btn-s">Meer lezen</button>
+            <button class="btn btn-g">Bekijk cases →</button>
+          </div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-lbl">Badges</div>
+          <div class="comp-items">
+            <span class="badge bd-o">Nieuw</span>
+            <span class="badge bd-g">Instagram</span>
+            <span class="badge bd-s">TikTok</span>
+            <span class="badge bd-s">LinkedIn</span>
+          </div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-lbl">Invoerveld</div>
+          <div class="comp-items">
+            <input class="field" type="email" placeholder="jouw@email.nl">
+            <button class="btn btn-p">Verstuur</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 Tekstblokken -->
+    <section>
+      <div class="sec-header">
+        <span class="sec-num">05</span>
+        <h2 class="sec-title">Tekstblokken</h2>
+      </div>
+      <div class="blocks">
+        <div class="block block-orange">
+          <div class="b-stat">+340%</div>
+          <div class="b-stat-label">Gemiddeld meer bereik na 3 maanden</div>
+        </div>
+        <div class="block block-card">
+          <div class="b-eyebrow">Onze aanpak</div>
+          <div class="b-title">Content die écht converteert</div>
+          <div class="b-body">We combineren strategie met creatie voor resultaten die je ziet in je omzet.</div>
+        </div>
+        <div class="block block-green">
+          <div class="b-quote">"Goede content is niet wat jij wilt vertellen — het is wat jouw klant wil horen."</div>
+          <div class="b-quote-author">Van de Socials Team</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 Slides -->
+    <section>
+      <div class="sec-header">
+        <span class="sec-num">06</span>
+        <h2 class="sec-title">Presentatie templates</h2>
+      </div>
+      <div class="slides">
+        <div class="slide">
+          <div class="s-title-bg">
+            <div class="s-eyebrow">Van de Socials · 2025</div>
+            <div class="s-headline">SOCIAL<br>STRATEGIE</div>
+            <div class="s-sub">Naam presentator · Datum</div>
+          </div>
+          <img src="vandeSocials_Logo_Circle_White_RGB_DEF.png" alt="" class="s-logo">
+        </div>
+        <div class="slide">
+          <div class="s-content-bg">
+            <div class="s-content-hdr">
+              <div class="s-headline">ONZE RESULTATEN</div>
+              <img src="vandeSocials_Logo_Circle_Black_RGB_DEF.png" alt="">
+            </div>
+            <div class="s-points">
+              <div class="s-point"><div class="s-point-n">01</div><div class="s-point-t">Bereik +340%</div></div>
+              <div class="s-point"><div class="s-point-n">02</div><div class="s-point-t">Engagement 8.7%</div></div>
+              <div class="s-point"><div class="s-point-n">03</div><div class="s-point-t">2.4M bereikt</div></div>
+              <div class="s-point"><div class="s-point-n">04</div><div class="s-point-t">18K nieuwe volgers</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="s-close-bg">
+            <div>
+              <div class="s-eyebrow">Bedankt voor je aandacht</div>
+              <div class="s-headline">LATEN WE<br><span>SAMEN</span><br>GROEIEN</div>
+            </div>
+            <div class="s-close-bottom">
+              <div class="s-close-contact">info@vandesocials.nl</div>
+              <div class="s-close-url">vandesocials.nl</div>
+            </div>
+          </div>
+          <img src="vandeSocials_Logo_Circle_FullColor_GBG zoom 1024.png" alt="" class="s-logo">
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <img src="vandeSocials_Logo_Circle_FullColor_GBG zoom 1024.png" alt="">
+      <div>
+        <div class="footer-name">Van de Socials</div>
+        <div class="footer-meta">Huisstijl · Donker thema · 2025</div>
+      </div>
+    </footer>
+
+  </div>
+</div>
+
+<!-- Scheiding -->
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════════════
+     LICHT THEMA
+════════════════════════════════════════════════════ -->
+<div class="theme theme-light">
+  <div class="page">
+
+    <div class="theme-label">
+      <div class="theme-label-dot"></div>
+      <span class="theme-label-text">Licht thema</span>
+    </div>
+
+    <!-- Hero -->
+    <header class="hero">
+      <div>
+        <h1>VAN DE<br><span>SOCIALS</span></h1>
+        <p>Brand Style Guide — 2025</p>
+      </div>
+      <img src="vandeSocials_Logo_Circle_FullColor_GBG zoom 1024.png" alt="Van de Socials logo" class="hero-logo">
+    </header>
+
+    <!-- 01 Kleuren -->
+    <section>
+      <div class="sec-header">
+        <span class="sec-num">01</span>
+        <h2 class="sec-title">Kleuren</h2>
+      </div>
+      <div class="swatches">
+        <div class="swatch">
+          <div class="swatch-color" style="background:#faa700"></div>
+          <div class="swatch-info"><div class="swatch-name">Orange</div><div class="swatch-hex">#faa700</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#064449"></div>
+          <div class="swatch-info"><div class="swatch-name">Green</div><div class="swatch-hex">#064449</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#231f20"></div>
+          <div class="swatch-info"><div class="swatch-name">Black</div><div class="swatch-hex">#231f20</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#ffffff;border-bottom:1px solid rgba(35,31,32,0.1)"></div>
+          <div class="swatch-info"><div class="swatch-name">White</div><div class="swatch-hex">#ffffff</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#ebedec"></div>
+          <div class="swatch-info"><div class="swatch-name">Grey</div><div class="swatch-hex">#ebedec</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 Typografie -->
+    <section>
+      <div class="sec-header">
+        <span class="sec-num">02</span>
+        <h2 class="sec-title">Typografie — Montserrat</h2>
+      </div>
+      <div class="type-list">
+        <div class="type-row">
+          <div class="type-meta"><div class="type-meta-name">Display</div><div class="type-meta-detail">900 · 44px</div></div>
+          <div class="ts-display">Van de Socials</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><div class="type-meta-name">Kop 1</div><div class="type-meta-detail">800 · 28px</div></div>
+          <div class="ts-h1">Groei door content</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><div class="type-meta-name">Kop 2</div><div class="type-meta-detail">700 · 20px</div></div>
+          <div class="ts-h2">Social media strategie</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><div class="type-meta-name">Body</div><div class="type-meta-detail">400 · 15px</div></div>
+          <div class="ts-body">De juiste boodschap, op het juiste moment, voor het juiste publiek.</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><div class="type-meta-name">Label</div><div class="type-meta-detail">700 · 12px</div></div>
+          <div class="ts-label">Instagram · LinkedIn · TikTok</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 Logo's -->
+    <section>
+      <div class="sec-header">
+        <span class="sec-num">03</span>
+        <h2 class="sec-title">Logo varianten</h2>
+      </div>
+      <div class="logo-grid">
+        <div class="logo-panel lp-green">
+          <img src="vandeSocials_Logo_Circle_White_RGB_DEF.png" alt="Wit logo op groen">
+          <span class="logo-caption">Wit op groen</span>
+        </div>
+        <div class="logo-panel lp-orange">
+          <img src="vandeSocials_Logo_Circle_Black_RGB_DEF.png" alt="Zwart logo op oranje">
+          <span class="logo-caption">Zwart op oranje</span>
+        </div>
+        <div class="logo-panel lp-black">
+          <img src="vandeSocials_Logo_Circle_FullColor_GBG zoom 1024.png" alt="Full-color logo">
+          <span class="logo-caption">Full color op zwart</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 Componenten -->
+    <section>
+      <div class="sec-header">
+        <span class="sec-num">04</span>
+        <h2 class="sec-title">Componenten</h2>
+      </div>
+      <div class="comp-block">
+        <div class="comp-row">
+          <div class="comp-lbl">Knoppen</div>
+          <div class="comp-items">
+            <button class="btn btn-p">Plan een gesprek</button>
+            <button class="btn btn-s">Meer lezen</button>
+            <button class="btn btn-g">Bekijk cases →</button>
+          </div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-lbl">Badges</div>
+          <div class="comp-items">
+            <span class="badge bd-o">Nieuw</span>
+            <span class="badge bd-g">Instagram</span>
+            <span class="badge bd-s">TikTok</span>
+            <span class="badge bd-s">LinkedIn</span>
+          </div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-lbl">Invoerveld</div>
+          <div class="comp-items">
+            <input class="field" type="email" placeholder="jouw@email.nl">
+            <button class="btn btn-p">Verstuur</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 Tekstblokken -->
+    <section>
+      <div class="sec-header">
+        <span class="sec-num">05</span>
+        <h2 class="sec-title">Tekstblokken</h2>
+      </div>
+      <div class="blocks">
+        <div class="block block-orange">
+          <div class="b-stat">+340%</div>
+          <div class="b-stat-label">Gemiddeld meer bereik na 3 maanden</div>
+        </div>
+        <div class="block block-card">
+          <div class="b-eyebrow">Onze aanpak</div>
+          <div class="b-title">Content die écht converteert</div>
+          <div class="b-body">We combineren strategie met creatie voor resultaten die je ziet in je omzet.</div>
+        </div>
+        <div class="block block-green">
+          <div class="b-quote">"Goede content is niet wat jij wilt vertellen — het is wat jouw klant wil horen."</div>
+          <div class="b-quote-author">Van de Socials Team</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 Slides -->
+    <section>
+      <div class="sec-header">
+        <span class="sec-num">06</span>
+        <h2 class="sec-title">Presentatie templates</h2>
+      </div>
+      <div class="slides">
+        <div class="slide">
+          <div class="s-title-bg">
+            <div class="s-eyebrow">Van de Socials · 2025</div>
+            <div class="s-headline">SOCIAL<br>STRATEGIE</div>
+            <div class="s-sub">Naam presentator · Datum</div>
+          </div>
+          <img src="vandeSocials_Logo_Circle_White_RGB_DEF.png" alt="" class="s-logo">
+        </div>
+        <div class="slide">
+          <div class="s-content-bg">
+            <div class="s-content-hdr">
+              <div class="s-headline">ONZE RESULTATEN</div>
+              <img src="vandeSocials_Logo_Circle_Black_RGB_DEF.png" alt="">
+            </div>
+            <div class="s-points">
+              <div class="s-point"><div class="s-point-n">01</div><div class="s-point-t">Bereik +340%</div></div>
+              <div class="s-point"><div class="s-point-n">02</div><div class="s-point-t">Engagement 8.7%</div></div>
+              <div class="s-point"><div class="s-point-n">03</div><div class="s-point-t">2.4M bereikt</div></div>
+              <div class="s-point"><div class="s-point-n">04</div><div class="s-point-t">18K nieuwe volgers</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="s-close-bg">
+            <div>
+              <div class="s-eyebrow">Bedankt voor je aandacht</div>
+              <div class="s-headline">LATEN WE<br><span>SAMEN</span><br>GROEIEN</div>
+            </div>
+            <div class="s-close-bottom">
+              <div class="s-close-contact">info@vandesocials.nl</div>
+              <div class="s-close-url">vandesocials.nl</div>
+            </div>
+          </div>
+          <img src="vandeSocials_Logo_Circle_FullColor_GBG zoom 1024.png" alt="" class="s-logo">
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <img src="vandeSocials_Logo_Circle_FullColor_GBG zoom 1024.png" alt="">
+      <div>
+        <div class="footer-name">Van de Socials</div>
+        <div class="footer-meta">Huisstijl · Licht thema · 2025</div>
+      </div>
+    </footer>
+
+  </div>
+</div>
+
+</body>
+</html>

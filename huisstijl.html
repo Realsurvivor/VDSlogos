@@ -11,7 +11,9 @@
   <style>
     /* ─── TOKENS ──────────────────────────────────────── */
     :root {
-      --orange:  #faa700;
+      --orange:   #faa700;
+      --orange2:  #fa7300;
+      --gradient: linear-gradient(135deg, #faa700, #fa7300);
       --green:   #064449;
       --black:   #231f20;
       --white:   #ffffff;
@@ -56,7 +58,7 @@
     /* Scheidingslijn */
     .divider {
       height: 6px;
-      background: var(--orange);
+      background: var(--gradient);
     }
 
     /* ─── LABEL ───────────────────────────────────────── */
@@ -96,35 +98,24 @@
     /* ─── HERO ────────────────────────────────────────── */
     .hero {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 32px;
-    }
-
-    .hero h1 {
-      font-size: clamp(40px, 6vw, 68px);
-      font-weight: 900;
-      line-height: 1;
-      letter-spacing: -0.02em;
-      color: var(--text);
-    }
-
-    .hero h1 span { color: var(--orange); }
-
-    .hero p {
-      margin-top: 12px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
     }
 
     .hero-logo {
-      width: 120px;
-      height: 120px;
+      max-width: 400px;
+      width: 100%;
+      height: auto;
       object-fit: contain;
-      flex-shrink: 0;
+    }
+
+    .hero p {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
     }
 
     /* ─── SECTIE HEADER ───────────────────────────────── */
@@ -163,13 +154,16 @@
       border-radius: var(--radius);
       overflow: hidden;
       border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
     }
 
-    .swatch-color { height: 90px; }
+    .swatch-color { height: 90px; flex-shrink: 0; display: block; }
 
     .swatch-info {
       background: var(--bg-card);
       padding: 10px 14px;
+      flex: 1;
     }
 
     .swatch-name {
@@ -310,7 +304,7 @@
 
     .btn:hover { opacity: 0.82; transform: translateY(-1px); }
 
-    .btn-p { background: var(--orange); color: var(--black); }
+    .btn-p { background: var(--gradient); color: var(--black); }
     .btn-s { background: var(--green);  color: var(--white); }
     .btn-g { background: transparent; color: var(--text); border: 1.5px solid var(--border); }
 
@@ -325,7 +319,7 @@
       border-radius: 100px;
     }
 
-    .bd-o { background: var(--orange); color: var(--black); }
+    .bd-o { background: var(--gradient); color: var(--black); }
     .bd-g { background: var(--green);  color: var(--white); }
     .bd-s { background: var(--bg-subtle); color: var(--text); }
 
@@ -361,7 +355,7 @@
     }
 
     .block-card   { background: var(--bg-card); }
-    .block-orange { background: var(--orange);  color: var(--black); }
+    .block-orange { background: var(--gradient); color: var(--white); }
     .block-green  { background: var(--green);   color: var(--white); grid-column: 1 / -1; }
 
     .b-eyebrow {
@@ -479,7 +473,7 @@
     .theme-light .s-content-bg { background: var(--white); }
 
     .s-content-hdr {
-      background: var(--orange);
+      background: var(--gradient);
       padding: 3% 5%;
       display: flex;
       align-items: center;
@@ -488,7 +482,7 @@
 
     .s-content-hdr .s-headline {
       font-size: 4.5cqh;
-      color: var(--black);
+      color: var(--white);
     }
 
     .s-content-hdr img { width: 8%; }
@@ -595,224 +589,6 @@
 <body>
 
 <!-- ═══════════════════════════════════════════════════
-     DONKER THEMA
-════════════════════════════════════════════════════ -->
-<div class="theme theme-dark">
-  <div class="page">
-
-    <div class="theme-label">
-      <div class="theme-label-dot"></div>
-      <span class="theme-label-text">Donker thema</span>
-    </div>
-
-    <!-- Hero -->
-    <header class="hero">
-      <div>
-        <h1>VAN DE<br><span>SOCIALS</span></h1>
-        <p>Brand Style Guide — 2025</p>
-      </div>
-      <img src="vandeSocials_Logo_Circle_FullColor_GBG zoom 1024.png" alt="Van de Socials logo" class="hero-logo">
-    </header>
-
-    <!-- 01 Kleuren -->
-    <section>
-      <div class="sec-header">
-        <span class="sec-num">01</span>
-        <h2 class="sec-title">Kleuren</h2>
-      </div>
-      <div class="swatches">
-        <div class="swatch">
-          <div class="swatch-color" style="background:#faa700"></div>
-          <div class="swatch-info"><div class="swatch-name">Orange</div><div class="swatch-hex">#faa700</div></div>
-        </div>
-        <div class="swatch">
-          <div class="swatch-color" style="background:#064449"></div>
-          <div class="swatch-info"><div class="swatch-name">Green</div><div class="swatch-hex">#064449</div></div>
-        </div>
-        <div class="swatch">
-          <div class="swatch-color" style="background:#231f20"></div>
-          <div class="swatch-info"><div class="swatch-name">Black</div><div class="swatch-hex">#231f20</div></div>
-        </div>
-        <div class="swatch">
-          <div class="swatch-color" style="background:#ffffff;border-bottom:1px solid rgba(255,255,255,0.1)"></div>
-          <div class="swatch-info"><div class="swatch-name">White</div><div class="swatch-hex">#ffffff</div></div>
-        </div>
-        <div class="swatch">
-          <div class="swatch-color" style="background:#ebedec"></div>
-          <div class="swatch-info"><div class="swatch-name">Grey</div><div class="swatch-hex">#ebedec</div></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 02 Typografie -->
-    <section>
-      <div class="sec-header">
-        <span class="sec-num">02</span>
-        <h2 class="sec-title">Typografie — Montserrat</h2>
-      </div>
-      <div class="type-list">
-        <div class="type-row">
-          <div class="type-meta"><div class="type-meta-name">Display</div><div class="type-meta-detail">900 · 44px</div></div>
-          <div class="ts-display">Van de Socials</div>
-        </div>
-        <div class="type-row">
-          <div class="type-meta"><div class="type-meta-name">Kop 1</div><div class="type-meta-detail">800 · 28px</div></div>
-          <div class="ts-h1">Groei door content</div>
-        </div>
-        <div class="type-row">
-          <div class="type-meta"><div class="type-meta-name">Kop 2</div><div class="type-meta-detail">700 · 20px</div></div>
-          <div class="ts-h2">Social media strategie</div>
-        </div>
-        <div class="type-row">
-          <div class="type-meta"><div class="type-meta-name">Body</div><div class="type-meta-detail">400 · 15px</div></div>
-          <div class="ts-body">De juiste boodschap, op het juiste moment, voor het juiste publiek.</div>
-        </div>
-        <div class="type-row">
-          <div class="type-meta"><div class="type-meta-name">Label</div><div class="type-meta-detail">700 · 12px</div></div>
-          <div class="ts-label">Instagram · LinkedIn · TikTok</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 03 Logo's -->
-    <section>
-      <div class="sec-header">
-        <span class="sec-num">03</span>
-        <h2 class="sec-title">Logo varianten</h2>
-      </div>
-      <div class="logo-grid">
-        <div class="logo-panel lp-green">
-          <img src="vandeSocials_Logo_Circle_White_RGB_DEF.png" alt="Wit logo op groen">
-          <span class="logo-caption">Wit op groen</span>
-        </div>
-        <div class="logo-panel lp-orange">
-          <img src="vandeSocials_Logo_Circle_Black_RGB_DEF.png" alt="Zwart logo op oranje">
-          <span class="logo-caption">Zwart op oranje</span>
-        </div>
-        <div class="logo-panel lp-black">
-          <img src="vandeSocials_Logo_Circle_FullColor_GBG zoom 1024.png" alt="Full-color logo">
-          <span class="logo-caption">Full color op zwart</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- 04 Componenten -->
-    <section>
-      <div class="sec-header">
-        <span class="sec-num">04</span>
-        <h2 class="sec-title">Componenten</h2>
-      </div>
-      <div class="comp-block">
-        <div class="comp-row">
-          <div class="comp-lbl">Knoppen</div>
-          <div class="comp-items">
-            <button class="btn btn-p">Plan een gesprek</button>
-            <button class="btn btn-s">Meer lezen</button>
-            <button class="btn btn-g">Bekijk cases →</button>
-          </div>
-        </div>
-        <div class="comp-row">
-          <div class="comp-lbl">Badges</div>
-          <div class="comp-items">
-            <span class="badge bd-o">Nieuw</span>
-            <span class="badge bd-g">Instagram</span>
-            <span class="badge bd-s">TikTok</span>
-            <span class="badge bd-s">LinkedIn</span>
-          </div>
-        </div>
-        <div class="comp-row">
-          <div class="comp-lbl">Invoerveld</div>
-          <div class="comp-items">
-            <input class="field" type="email" placeholder="jouw@email.nl">
-            <button class="btn btn-p">Verstuur</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 05 Tekstblokken -->
-    <section>
-      <div class="sec-header">
-        <span class="sec-num">05</span>
-        <h2 class="sec-title">Tekstblokken</h2>
-      </div>
-      <div class="blocks">
-        <div class="block block-orange">
-          <div class="b-stat">+340%</div>
-          <div class="b-stat-label">Gemiddeld meer bereik na 3 maanden</div>
-        </div>
-        <div class="block block-card">
-          <div class="b-eyebrow">Onze aanpak</div>
-          <div class="b-title">Content die écht converteert</div>
-          <div class="b-body">We combineren strategie met creatie voor resultaten die je ziet in je omzet.</div>
-        </div>
-        <div class="block block-green">
-          <div class="b-quote">"Goede content is niet wat jij wilt vertellen — het is wat jouw klant wil horen."</div>
-          <div class="b-quote-author">Van de Socials Team</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 06 Slides -->
-    <section>
-      <div class="sec-header">
-        <span class="sec-num">06</span>
-        <h2 class="sec-title">Presentatie templates</h2>
-      </div>
-      <div class="slides">
-        <div class="slide">
-          <div class="s-title-bg">
-            <div class="s-eyebrow">Van de Socials · 2025</div>
-            <div class="s-headline">SOCIAL<br>STRATEGIE</div>
-            <div class="s-sub">Naam presentator · Datum</div>
-          </div>
-          <img src="vandeSocials_Logo_Circle_White_RGB_DEF.png" alt="" class="s-logo">
-        </div>
-        <div class="slide">
-          <div class="s-content-bg">
-            <div class="s-content-hdr">
-              <div class="s-headline">ONZE RESULTATEN</div>
-              <img src="vandeSocials_Logo_Circle_Black_RGB_DEF.png" alt="">
-            </div>
-            <div class="s-points">
-              <div class="s-point"><div class="s-point-n">01</div><div class="s-point-t">Bereik +340%</div></div>
-              <div class="s-point"><div class="s-point-n">02</div><div class="s-point-t">Engagement 8.7%</div></div>
-              <div class="s-point"><div class="s-point-n">03</div><div class="s-point-t">2.4M bereikt</div></div>
-              <div class="s-point"><div class="s-point-n">04</div><div class="s-point-t">18K nieuwe volgers</div></div>
-            </div>
-          </div>
-        </div>
-        <div class="slide">
-          <div class="s-close-bg">
-            <div>
-              <div class="s-eyebrow">Bedankt voor je aandacht</div>
-              <div class="s-headline">LATEN WE<br><span>SAMEN</span><br>GROEIEN</div>
-            </div>
-            <div class="s-close-bottom">
-              <div class="s-close-contact">info@vandesocials.nl</div>
-              <div class="s-close-url">vandesocials.nl</div>
-            </div>
-          </div>
-          <img src="vandeSocials_Logo_Circle_FullColor_GBG zoom 1024.png" alt="" class="s-logo">
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <img src="vandeSocials_Logo_Circle_FullColor_GBG zoom 1024.png" alt="">
-      <div>
-        <div class="footer-name">Van de Socials</div>
-        <div class="footer-meta">Huisstijl · Donker thema · 2025</div>
-      </div>
-    </footer>
-
-  </div>
-</div>
-
-<!-- Scheiding -->
-<div class="divider"></div>
-
-<!-- ═══════════════════════════════════════════════════
      LICHT THEMA
 ════════════════════════════════════════════════════ -->
 <div class="theme theme-light">
@@ -825,11 +601,8 @@
 
     <!-- Hero -->
     <header class="hero">
-      <div>
-        <h1>VAN DE<br><span>SOCIALS</span></h1>
-        <p>Brand Style Guide — 2025</p>
-      </div>
-      <img src="vandeSocials_Logo_Circle_FullColor_GBG zoom 1024.png" alt="Van de Socials logo" class="hero-logo">
+      <img src="https://raw.githubusercontent.com/Realsurvivor/VDSlogos/main/vandeSocials_Logo_Standard_FullColor_RGB_DEF.png" alt="Van de Socials" class="hero-logo">
+      <p>Brand Style Guide — 2026</p>
     </header>
 
     <!-- 01 Kleuren -->
@@ -859,6 +632,10 @@
           <div class="swatch-color" style="background:#ebedec"></div>
           <div class="swatch-info"><div class="swatch-name">Grey</div><div class="swatch-hex">#ebedec</div></div>
         </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:linear-gradient(135deg,#faa700,#fa7300)"></div>
+          <div class="swatch-info"><div class="swatch-name">Gradient</div><div class="swatch-hex">#faa700 → #fa7300</div></div>
+        </div>
       </div>
     </section>
 
@@ -900,16 +677,16 @@
       </div>
       <div class="logo-grid">
         <div class="logo-panel lp-green">
-          <img src="vandeSocials_Logo_Circle_White_RGB_DEF.png" alt="Wit logo op groen">
+          <img src="https://raw.githubusercontent.com/Realsurvivor/VDSlogos/main/vandeSocials_Logo_Circle_White_RGB_DEF.png" alt="Wit logo op groen">
           <span class="logo-caption">Wit op groen</span>
         </div>
         <div class="logo-panel lp-orange">
-          <img src="vandeSocials_Logo_Circle_Black_RGB_DEF.png" alt="Zwart logo op oranje">
-          <span class="logo-caption">Zwart op oranje</span>
+          <img src="https://raw.githubusercontent.com/Realsurvivor/VDSlogos/main/vandeSocials_Logo_Circle_White_RGB_DEF.png" alt="Wit logo op oranje">
+          <span class="logo-caption">Wit op oranje</span>
         </div>
         <div class="logo-panel lp-black">
-          <img src="vandeSocials_Logo_Circle_FullColor_GBG zoom 1024.png" alt="Full-color logo">
-          <span class="logo-caption">Full color op zwart</span>
+          <img src="https://raw.githubusercontent.com/Realsurvivor/VDSlogos/main/vandeSocials_Logo_Circle_Diapositief_RGB_DEF.png" alt="Wit cirkel logo op zwart" style="width:88px;height:88px;object-fit:contain">
+          <span class="logo-caption">Wit op zwart</span>
         </div>
       </div>
     </section>
@@ -980,17 +757,17 @@
       <div class="slides">
         <div class="slide">
           <div class="s-title-bg">
-            <div class="s-eyebrow">Van de Socials · 2025</div>
+            <div class="s-eyebrow">Van de Socials · 2026</div>
             <div class="s-headline">SOCIAL<br>STRATEGIE</div>
             <div class="s-sub">Naam presentator · Datum</div>
           </div>
-          <img src="vandeSocials_Logo_Circle_White_RGB_DEF.png" alt="" class="s-logo">
+          <img src="https://raw.githubusercontent.com/Realsurvivor/VDSlogos/main/vandeSocials_Logo_Circle_White_RGB_DEF.png" alt="" class="s-logo">
         </div>
         <div class="slide">
           <div class="s-content-bg">
             <div class="s-content-hdr">
               <div class="s-headline">ONZE RESULTATEN</div>
-              <img src="vandeSocials_Logo_Circle_Black_RGB_DEF.png" alt="">
+              <img src="https://raw.githubusercontent.com/Realsurvivor/VDSlogos/main/vandeSocials_Logo_Circle_White_RGB_DEF.png" alt="">
             </div>
             <div class="s-points">
               <div class="s-point"><div class="s-point-n">01</div><div class="s-point-t">Bereik +340%</div></div>
@@ -1011,16 +788,238 @@
               <div class="s-close-url">vandesocials.nl</div>
             </div>
           </div>
-          <img src="vandeSocials_Logo_Circle_FullColor_GBG zoom 1024.png" alt="" class="s-logo">
+          <img src="https://raw.githubusercontent.com/Realsurvivor/VDSlogos/main/vandeSocials_Logo_Circle_Diapositief_RGB_DEF.png" alt="" class="s-logo">
         </div>
       </div>
     </section>
 
     <footer class="footer">
-      <img src="vandeSocials_Logo_Circle_FullColor_GBG zoom 1024.png" alt="">
+      <img src="https://raw.githubusercontent.com/Realsurvivor/VDSlogos/main/vandeSocials_Logo_Standard_FullColor_RGB_DEF.png" alt="" style="width:160px;height:auto">
       <div>
         <div class="footer-name">Van de Socials</div>
-        <div class="footer-meta">Huisstijl · Licht thema · 2025</div>
+        <div class="footer-meta">Huisstijl · Licht thema · 2026</div>
+      </div>
+    </footer>
+
+  </div>
+</div>
+
+</body>
+</html>
+
+<!-- Scheiding -->
+<div class="divider"></div>
+
+<!-- ═══════════════════════════════════════════════════
+     DONKER THEMA
+════════════════════════════════════════════════════ -->
+<div class="theme theme-dark">
+  <div class="page">
+
+    <div class="theme-label">
+      <div class="theme-label-dot"></div>
+      <span class="theme-label-text">Donker thema</span>
+    </div>
+
+    <!-- Hero -->
+    <header class="hero">
+      <img src="https://raw.githubusercontent.com/Realsurvivor/VDSlogos/main/vandeSocials_Logo_Standard_Diapositief_RGB_DEF.png" alt="Van de Socials" class="hero-logo">
+      <p>Brand Style Guide — 2026</p>
+    </header>
+
+    <!-- 01 Kleuren -->
+    <section>
+      <div class="sec-header">
+        <span class="sec-num">01</span>
+        <h2 class="sec-title">Kleuren</h2>
+      </div>
+      <div class="swatches">
+        <div class="swatch">
+          <div class="swatch-color" style="background:#faa700"></div>
+          <div class="swatch-info"><div class="swatch-name">Orange</div><div class="swatch-hex">#faa700</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#064449"></div>
+          <div class="swatch-info"><div class="swatch-name">Green</div><div class="swatch-hex">#064449</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#231f20"></div>
+          <div class="swatch-info"><div class="swatch-name">Black</div><div class="swatch-hex">#231f20</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#ffffff;border-bottom:1px solid rgba(255,255,255,0.1)"></div>
+          <div class="swatch-info"><div class="swatch-name">White</div><div class="swatch-hex">#ffffff</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:#ebedec"></div>
+          <div class="swatch-info"><div class="swatch-name">Grey</div><div class="swatch-hex">#ebedec</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background:linear-gradient(135deg,#faa700,#fa7300)"></div>
+          <div class="swatch-info"><div class="swatch-name">Gradient</div><div class="swatch-hex">#faa700 → #fa7300</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 Typografie -->
+    <section>
+      <div class="sec-header">
+        <span class="sec-num">02</span>
+        <h2 class="sec-title">Typografie — Montserrat</h2>
+      </div>
+      <div class="type-list">
+        <div class="type-row">
+          <div class="type-meta"><div class="type-meta-name">Display</div><div class="type-meta-detail">900 · 44px</div></div>
+          <div class="ts-display">Van de Socials</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><div class="type-meta-name">Kop 1</div><div class="type-meta-detail">800 · 28px</div></div>
+          <div class="ts-h1">Groei door content</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><div class="type-meta-name">Kop 2</div><div class="type-meta-detail">700 · 20px</div></div>
+          <div class="ts-h2">Social media strategie</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><div class="type-meta-name">Body</div><div class="type-meta-detail">400 · 15px</div></div>
+          <div class="ts-body">De juiste boodschap, op het juiste moment, voor het juiste publiek.</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><div class="type-meta-name">Label</div><div class="type-meta-detail">700 · 12px</div></div>
+          <div class="ts-label">Instagram · LinkedIn · TikTok</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 Logo's -->
+    <section>
+      <div class="sec-header">
+        <span class="sec-num">03</span>
+        <h2 class="sec-title">Logo varianten</h2>
+      </div>
+      <div class="logo-grid">
+        <div class="logo-panel lp-green">
+          <img src="https://raw.githubusercontent.com/Realsurvivor/VDSlogos/main/vandeSocials_Logo_Circle_White_RGB_DEF.png" alt="Wit logo op groen">
+          <span class="logo-caption">Wit op groen</span>
+        </div>
+        <div class="logo-panel lp-orange">
+          <img src="https://raw.githubusercontent.com/Realsurvivor/VDSlogos/main/vandeSocials_Logo_Circle_White_RGB_DEF.png" alt="Wit logo op oranje">
+          <span class="logo-caption">Wit op oranje</span>
+        </div>
+        <div class="logo-panel lp-black">
+          <img src="https://raw.githubusercontent.com/Realsurvivor/VDSlogos/main/vandeSocials_Logo_Circle_Diapositief_RGB_DEF.png" alt="Wit cirkel logo op zwart" style="width:88px;height:88px;object-fit:contain">
+          <span class="logo-caption">Wit op zwart</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 Componenten -->
+    <section>
+      <div class="sec-header">
+        <span class="sec-num">04</span>
+        <h2 class="sec-title">Componenten</h2>
+      </div>
+      <div class="comp-block">
+        <div class="comp-row">
+          <div class="comp-lbl">Knoppen</div>
+          <div class="comp-items">
+            <button class="btn btn-p">Plan een gesprek</button>
+            <button class="btn btn-s">Meer lezen</button>
+            <button class="btn btn-g">Bekijk cases →</button>
+          </div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-lbl">Badges</div>
+          <div class="comp-items">
+            <span class="badge bd-o">Nieuw</span>
+            <span class="badge bd-g">Instagram</span>
+            <span class="badge bd-s">TikTok</span>
+            <span class="badge bd-s">LinkedIn</span>
+          </div>
+        </div>
+        <div class="comp-row">
+          <div class="comp-lbl">Invoerveld</div>
+          <div class="comp-items">
+            <input class="field" type="email" placeholder="jouw@email.nl">
+            <button class="btn btn-p">Verstuur</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 Tekstblokken -->
+    <section>
+      <div class="sec-header">
+        <span class="sec-num">05</span>
+        <h2 class="sec-title">Tekstblokken</h2>
+      </div>
+      <div class="blocks">
+        <div class="block block-orange">
+          <div class="b-stat">+340%</div>
+          <div class="b-stat-label">Gemiddeld meer bereik na 3 maanden</div>
+        </div>
+        <div class="block block-card">
+          <div class="b-eyebrow">Onze aanpak</div>
+          <div class="b-title">Content die écht converteert</div>
+          <div class="b-body">We combineren strategie met creatie voor resultaten die je ziet in je omzet.</div>
+        </div>
+        <div class="block block-green">
+          <div class="b-quote">"Goede content is niet wat jij wilt vertellen — het is wat jouw klant wil horen."</div>
+          <div class="b-quote-author">Van de Socials Team</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 Slides -->
+    <section>
+      <div class="sec-header">
+        <span class="sec-num">06</span>
+        <h2 class="sec-title">Presentatie templates</h2>
+      </div>
+      <div class="slides">
+        <div class="slide">
+          <div class="s-title-bg">
+            <div class="s-eyebrow">Van de Socials · 2026</div>
+            <div class="s-headline">SOCIAL<br>STRATEGIE</div>
+            <div class="s-sub">Naam presentator · Datum</div>
+          </div>
+          <img src="https://raw.githubusercontent.com/Realsurvivor/VDSlogos/main/vandeSocials_Logo_Circle_White_RGB_DEF.png" alt="" class="s-logo">
+        </div>
+        <div class="slide">
+          <div class="s-content-bg">
+            <div class="s-content-hdr">
+              <div class="s-headline">ONZE RESULTATEN</div>
+              <img src="https://raw.githubusercontent.com/Realsurvivor/VDSlogos/main/vandeSocials_Logo_Circle_White_RGB_DEF.png" alt="">
+            </div>
+            <div class="s-points">
+              <div class="s-point"><div class="s-point-n">01</div><div class="s-point-t">Bereik +340%</div></div>
+              <div class="s-point"><div class="s-point-n">02</div><div class="s-point-t">Engagement 8.7%</div></div>
+              <div class="s-point"><div class="s-point-n">03</div><div class="s-point-t">2.4M bereikt</div></div>
+              <div class="s-point"><div class="s-point-n">04</div><div class="s-point-t">18K nieuwe volgers</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="s-close-bg">
+            <div>
+              <div class="s-eyebrow">Bedankt voor je aandacht</div>
+              <div class="s-headline">LATEN WE<br><span>SAMEN</span><br>GROEIEN</div>
+            </div>
+            <div class="s-close-bottom">
+              <div class="s-close-contact">info@vandesocials.nl</div>
+              <div class="s-close-url">vandesocials.nl</div>
+            </div>
+          </div>
+          <img src="https://raw.githubusercontent.com/Realsurvivor/VDSlogos/main/vandeSocials_Logo_Circle_Diapositief_RGB_DEF.png" alt="" class="s-logo">
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <img src="https://raw.githubusercontent.com/Realsurvivor/VDSlogos/main/vandeSocials_Logo_Standard_Diapositief_RGB_DEF.png" alt="" style="width:160px;height:auto">
+      <div>
+        <div class="footer-name">Van de Socials</div>
+        <div class="footer-meta">Huisstijl · Donker thema · 2026</div>
       </div>
     </footer>
 
